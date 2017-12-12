@@ -1,0 +1,34 @@
+# Project
+
+```{r init, include=FALSE}
+libs <- c("dplyr", "ggplot2", "knitr")
+invisible(sapply(libs, require, character.only=TRUE))
+opts_chunk$set(echo=FALSE)
+```
+
+This is sample rmarkdown code, rendered in a running shiny app.
+Belowis a table from `mtcars`.
+
+```{r}
+head(mtcars,6) %>%
+    knitr::kable(caption="Table 1 - First few rows of mtcars.")
+```
+
+## Basic Question
+
+Does additional horsepower correlate wth additional vehicle weight?
+The following plot shows this relationship.
+
+```{r}
+ggplot(mtcars, aes(hp, wt)) +
+    geom_point() +
+    geom_smooth(method="lm")
+```
+
+## Results
+
+Based on the graph, 
+
+- increasing horsepower is correlated with increasing weight.
+
+Edit the markdown to update the resulting html.
